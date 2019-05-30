@@ -5,6 +5,12 @@ from django.utils.safestring import mark_safe
 from django import forms
 from django.utils.encoding import force_text
 
+# Python 3 quick fix
+try:
+    from builtins import str as unicode
+except ImportError:
+    pass
+
 
 class NoSuchFormField(Exception):
     """""The form field couldn't be resolved."""""
