@@ -3,7 +3,10 @@ from django.template import Context
 from django.template.loader import get_template, select_template
 from django.utils.safestring import mark_safe
 from django import forms
-from django.utils.encoding import force_text
+try:
+    from django.utils.encoding import force_text
+except ImportError:
+    from django.utils.encoding import force_str as force_text
 
 # Python 3 quick fix
 try:
